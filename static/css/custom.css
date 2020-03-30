@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+* {margin: 0; padding: 0; color: #fff}
+
+body {color: #fff; width: 100vw; height: 100vh;}
+
+/* Background da página */
+#particles-js {
+    background-color: #121212;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#particles-js * {pointer-events: none;}
+
+/* Estilização do Navbar */
+.navbar {transition: all 0.2s;}
+.navbar .navbar-brand img {padding-right: 1vh;}
+.navbar .btn-login .fas {padding-right: 0.75vh}
+
+/* Site */
+.section {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    min-height: 100%;
+}
+.section .content {width: 100vw}
+.section .content h2 {
+    text-decoration: italic; 
+    font-size: 3.5rem;
+}
+#quem-nos-somos h2 {
+    font-family: 'Pacifico', cursive;
+}
+#quem-nos-somos p {
+    font-size: 1.4rem;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#produtos .card {margin: 20px;}
+#produtos .card img {height: 200px;}

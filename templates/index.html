@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Carregamento de CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/mdb.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> -->
+
+    <!-- Carregamento de Javascript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popper.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.js') }}"></script>
+
+    <!-- Metadados do Site -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="A melhor loja brasileira do mercado">
+    <meta name="author" content="Neo_">
+    <meta name="theme-color" content="#00ff5f"> 
+    <meta property="og:image" content="https://cdn.glitch.com/a8f456d2-cfef-44e3-b1cf-1c896a9aa39a%2Flogo.png?v=1583777529549">
+
+    <!-- Outros -->
+    <title>NeoStore | A melhor loja brasileira</title>
+    <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/Dwov4tZ.png"/>
+
+  </head>
+
+  <body>
+    <!-- Particles JS / Background-->
+    <div id="particles-js"></div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/particles-app.js') }}"></script>
+    <!------------------------------>
+
+    <!-- Navbar -->
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark fixed-top">
+      <!-- Logo -->
+      <a class="navbar-brand" href="/"><img src="https://i.imgur.com/Dwov4tZ.png" height="50"><b>NeoStore</b></a>
+
+      <!-- Botão do Mobile -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOptions" aria-controls="navbarOptions" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarOptions">
+        <ul class="navbar-nav mr-auto">
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="/"><i class="fas fa-home"></i>Iniciar</a>
+          </li>
+
+          <!-- Produtos -->
+          <li class="nav-item">
+            <a class="nav-link" href="/produtos"><i class="fas fa-shopping-cart"></i>Produtos</a>
+          </li>
+          
+          <!-- Convite Discord -->
+          <li class="nav-item">
+            <a class="nav-link" href="/convite"><i class="fab fa-discord"></i>Servidor</a>
+          </li>
+        </ul>
+        
+        <!-- Login -->
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          {% if user %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="loginButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {% if user["avatar"] %}
+              <img src="https://cdn.discordapp.com/avatars/{{ user['id'] }}/{{ user['avatar'] }}.png" class="rounded-circle z-depth-0" alt="avatar image" width="35" height="35" style="border: 2px solid white;">{{ user['username'] }}
+              {% else %}
+              <img src="https://discordapp.com/assets/1cbd08c76f8af6dddce02c5138971129.png" class="rounded-circle z-depth-0" alt="avatar image" width="35" height="35" style="border: 2px solid white;">{{ user['username'] }}
+              {% endif %}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="loginButton">
+              <!-- <a class="dropdown-item" href="/profile/" <i class="fas fa-user"></i>Perfil</a> -->
+              <a class="dropdown-item" href="/logout"> <i class="fas fa-times"></i>Sair</a>
+            </div> 
+            {% else %}
+          <li class="nav-item">
+            <a class="nav-link btn-login" href="/login">
+              <button class="btn btn-outline-light">
+                <i class="fas fa-sign-in-alt"></i><b>Login</b>
+              </button>
+            </a>
+          </li>      
+          {% endif %}
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Fim Navbar -->
+
+    <div id="quem-nos-somos" class="section intro text-center align-middle">
+      <div class="content">
+        <h2>Quem nós somos?</h2>
+        <p>Somos uma loja que se preocupa com a satisfação e segurança de nossos clientes.<br>Temos os melhores produtos digitais com os preços mais acessíveis a todas as pessoas!</p>
+      </div>
+    </div>
+
+    <div id="produtos" class="section products text-center align-middle">
+      <div class="content">
+        <h2>Aqui está uma lista dos nossos produtos.</h2> 
+        <div class="card-deck">
+
+          <div class="card text-white bg-dark">
+            <img class="card-img-top" src="https://kpmgbrasil.com.br/Media/75944c18-74dc-4bd5-8b01-bc2187a57cc7.jpg" alt="Spotify">
+            <div class="card-body">
+              <h5 class="card-title">Spotify Premium</h5>
+              <p class="card-text">Spotify premium com duração eterna.</p>
+              <a href="/compra/spotify/"><button class="btn btn-success">Comprar</button></a>
+            </div>
+          </div>  
+
+          <div class="card text-white bg-dark">
+            <img class="card-img-top" src="https://i.imgur.com/LxW3vuD.png" alt="Bot para Discord">
+            <div class="card-body">
+              <h5 class="card-title">Bot para Discord</h5>
+              <p class="card-text">Bot programado especialmente para seu servidor.</p>
+              <a href="/compra/bot/"><button class="btn btn-success" >Encomendar</button></a>
+            </div>
+          </div>  
+
+          <div class="card text-white bg-dark">
+            <img class="card-img-top" src="https://i.imgur.com/LxW3vuD.png" alt="Capa da Optifine">
+            <div class="card-body">
+              <h5 class="card-title">Capa da Optifine</h5>
+              <p class="card-text">Capa da Optifine para seu minecraft.</p>
+              <button class="btn btn-active" disabled>Esgotado</button>
+            </div>
+          </div>  
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts que interagem com o site -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+  </body>
+</html>
